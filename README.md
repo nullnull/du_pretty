@@ -1,7 +1,7 @@
 # DuPretty
 Show pretty print of `du` results.
 
-[![Image from Gyazo](https://i.gyazo.com/8a7911cf58bb4ac1aa586cc24c8a307e.png)](https://gyazo.com/8a7911cf58bb4ac1aa586cc24c8a307e)
+[![Image from Gyazo](https://i.gyazo.com/5c5a0a5099cc0439efb8aaa7d767743a.png)](https://gyazo.com/5c5a0a5099cc0439efb8aaa7d767743a)
 
 ## Installation
 ```sh
@@ -15,10 +15,10 @@ $ du_pretty <path>
 # specify max depth
 $ du_pretty -d 2 <path>
 
-# show directories if its size is 100KB+
-$ du_pretty --max-kbyte 100 <path>
+# Filter results of `du` by its file's size
+$ du_pretty --size 10M <path>
 
-# show directories sorted by its size
+# Show results sorted by the file's size
 $ du_pretty --sort <path>
 
 # help
