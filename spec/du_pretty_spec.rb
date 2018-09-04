@@ -33,7 +33,7 @@ RSpec.describe DuPretty do
       path,
       depth: depth,
       min_kbyte: min_kbyte,
-    ).pretty.split("\n").length
+    ).tree.split("\n").length
   end
 
   it "works" do

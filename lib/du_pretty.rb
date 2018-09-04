@@ -12,13 +12,8 @@ module DuPretty
       @depth = depth
     end
 
-    def pretty
-      du.split("\n")
-        .map { |line| DiskUsage.new(line, @path) }
-        .select { |x| x.kbyte >= @min_kbyte }
-        .reverse
-        .map(&:pretty)
-        .join("\n")
+    def tree
+      disk_usages.map(&:tree_format).join("\n")
     end
 
     private
@@ -26,6 +21,13 @@ module DuPretty
     def du
       options = @depth.nil? ? '' : "-d #{@depth}"
       `du -k #{options} #{@path}`
+    end
+
+    def disk_usages
+      du.split("\n")
+        .map { |line| DiskUsage.new(line, @path) }
+        .select { |x| x.kbyte >= @min_kbyte }
+        .reverse
     end
 
     class DiskUsage
@@ -38,7 +40,7 @@ module DuPretty
         @path = raw.split("\t").compact[1]
       end
 
-      def pretty
+      def tree_format
         pretty_path + ' ' + pretty_byte
       end
 
