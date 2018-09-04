@@ -1,38 +1,44 @@
 # DuPretty
+Show pretty print of `du` results.
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/du_pretty`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+[![Image from Gyazo](https://i.gyazo.com/8a7911cf58bb4ac1aa586cc24c8a307e.png)](https://gyazo.com/8a7911cf58bb4ac1aa586cc24c8a307e)
 
 ## Installation
-
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'du_pretty'
+```sh
+$ gem install 'du_pretty'
 ```
 
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install du_pretty
-
 ## Usage
+```sh
+$ du_pretty <path>
 
-TODO: Write usage instructions here
+# specify max depth
+$ du_pretty -d 2 <path>
+
+# show directories if its size is 100KB+
+$ du_pretty --max-kbyte 100 <path>
+
+# show directories sorted by its size
+$ du_pretty --sort <path>
+
+# help
+$ du_pretty --help
+```
+
 
 ## Development
+```sh
+# run
+$ bundle install
+$ bundle exec exe/du_pretty
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
-
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+# test
+$ bundle exec rspec spec/du_pretty_spec.rb
+```
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/du_pretty. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/nullnull/du_pretty. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 ## License
 
