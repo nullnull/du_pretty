@@ -1,9 +1,6 @@
 # DuPretty
-<!-- [![PyPI - Status](https://img.shields.io/pypi/status/simstring-pure.svg)](https://pypi.org/project/simstring-pure/)
-[![PyPI version](https://badge.fury.io/py/simstring-pure.svg)](https://badge.fury.io/py/simstring-pure)
-[![PyPI - Python Version](https://img.shields.io/pypi/pyversions/simstring-pure.svg)](https://pypi.org/project/simstring-pure/0.0.1/) -->
-<!-- [![MIT License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](LICENSE) -->
-
+[![Gem](https://img.shields.io/gem/v/du_pretty.svg)](https://rubygems.org/gems/du_pretty)
+[![MIT License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](LICENSE)
 [![CircleCI](https://circleci.com/gh/nullnull/du_pretty/tree/master.svg?style=svg)](https://circleci.com/gh/nullnull/du_pretty/tree/master)
 [![Maintainability](https://api.codeclimate.com/v1/badges/2cc73b7dea6a066b6f9b/maintainability)](https://codeclimate.com/github/nullnull/du_pretty/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/2cc73b7dea6a066b6f9b/test_coverage)](https://codeclimate.com/github/nullnull/du_pretty/test_coverage)
