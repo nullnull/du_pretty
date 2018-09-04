@@ -6,39 +6,62 @@ require 'du_pretty/cli'
 
 module DuPretty
   class DuWrapper
-    def initialize(path, min_kbyte: 0, depth: nil)
+    def initialize(path, min_kbyte: 0, depth: nil, with_files: false)
       @path = File.expand_path(path, Pathname.pwd)
       @min_kbyte = min_kbyte
       @depth = depth
+      @with_files = with_files
     end
 
-    def pretty
-      du.split("\n")
-        .map { |line| DiskUsage.new(line, @path) }
-        .select { |x| x.kbyte >= @min_kbyte }
-        .reverse
-        .map(&:pretty)
-        .join("\n")
+    def original
+      filtered_disk_usages.map(&:pretty).join("\n")
+    end
+
+    def sorted
+      filtered_disk_usages.sort_by(&:kbyte).map(&:pretty).join("\n")
+    end
+
+    def tree
+      filtered_disk_usages.reverse.map(&:tree_format).join("\n")
     end
 
     private
 
     def du
-      options = @depth.nil? ? '' : "-d #{@depth}"
-      `du -k #{options} #{@path}`
+      options = [
+        @depth.nil? ? nil : "-d #{@depth}",
+        @with_files ? '-a' : nil,
+        '-k'
+      ]
+      `du #{options.join(' ')} #{@path}`
+    end
+
+    def disk_usages
+      xs = du.split("\n").map { |line| DiskUsage.new(line, @path) }
+      total = xs.map(&:kbyte).max
+      xs.map { |x| DiskUsage.new(x.raw, @path, total: total) }
+    end
+
+    def filtered_disk_usages
+      disk_usages.select { |x| x.kbyte >= @min_kbyte }
     end
 
     class DiskUsage
       attr_accessor :raw, :kbyte, :path
 
-      def initialize(raw, root)
+      def initialize(raw, root, total: nil)
         @raw = raw
         @root = root
         @kbyte = raw.split("\t").compact[0].to_i
         @path = raw.split("\t").compact[1]
+        @total = total
       end
 
       def pretty
+        pretty_byte + "\t." + relative_path
+      end
+
+      def tree_format
         pretty_path + ' ' + pretty_byte
       end
 
@@ -57,21 +80,21 @@ module DuPretty
         gb = mb / 1024
         if gb.positive?
           if gb > 10
-            "#{gb}GB".red
+            "#{gb}GB (#{percentage})".red
           else
-            "#{gb}GB".light_red
+            "#{gb}GB (#{percentage})".light_red
           end
         elsif mb.positive?
           if mb > 500
-            "#{mb}MB".yellow
+            "#{mb}MB (#{percentage})".yellow
           else
-            "#{mb}MB".light_yellow
+            "#{mb}MB (#{percentage})".light_yellow
           end
         else
           if @kbyte > 500
-            "#{@kbyte}KB".green
+            "#{@kbyte}KB (#{percentage})".green
           else
-            "#{@kbyte}KB".light_green
+            "#{@kbyte}KB (#{percentage})".light_green
           end
         end
       end
@@ -81,6 +104,11 @@ module DuPretty
         spaces = depth.positive? ? '  ' * depth : ''
         tree_symbol = '└── '
         spaces + tree_symbol + basename
+      end
+
+      def percentage
+        percentage = @kbyte * 1.0 / @total * 100
+        "#{percentage.ceil}%"
       end
 
       def relative_path
