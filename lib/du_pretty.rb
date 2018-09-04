@@ -6,10 +6,11 @@ require 'du_pretty/cli'
 
 module DuPretty
   class DuWrapper
-    def initialize(path, min_kbyte: 0, depth: nil)
+    def initialize(path, min_kbyte: 0, depth: nil, with_files: false)
       @path = File.expand_path(path, Pathname.pwd)
       @min_kbyte = min_kbyte
       @depth = depth
+      @with_files = with_files
     end
 
     def original
@@ -27,8 +28,12 @@ module DuPretty
     private
 
     def du
-      options = @depth.nil? ? '' : "-d #{@depth}"
-      `du -k #{options} #{@path}`
+      options = [
+        @depth.nil? ? nil : "-d #{@depth}",
+        @with_files ? '-a' : nil,
+        '-k'
+      ]
+      `du #{options.join(' ')} #{@path}`
     end
 
     def disk_usages
