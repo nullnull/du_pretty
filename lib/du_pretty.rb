@@ -12,8 +12,16 @@ module DuPretty
       @depth = depth
     end
 
+    def original
+      disk_usages.map(&:pretty).join("\n")
+    end
+
+    def sorted
+      disk_usages.sort_by(&:kbyte).map(&:pretty).join("\n")
+    end
+
     def tree
-      disk_usages.map(&:tree_format).join("\n")
+      disk_usages.reverse.map(&:tree_format).join("\n")
     end
 
     private
@@ -27,7 +35,6 @@ module DuPretty
       du.split("\n")
         .map { |line| DiskUsage.new(line, @path) }
         .select { |x| x.kbyte >= @min_kbyte }
-        .reverse
     end
 
     class DiskUsage
@@ -38,6 +45,10 @@ module DuPretty
         @root = root
         @kbyte = raw.split("\t").compact[0].to_i
         @path = raw.split("\t").compact[1]
+      end
+
+      def pretty
+        pretty_byte + "\t." + relative_path
       end
 
       def tree_format
