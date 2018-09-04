@@ -6,7 +6,7 @@ require 'du_pretty/cli'
 module DuPretty
   class DuWrapper
     def initialize(path, min_kbyte: 0, depth: nil)
-      @path = File.expand_path(path, Pathname.pwd)
+      @path = File.expand_path(path, ::Pathname.pwd)
       @min_kbyte = min_kbyte
       @depth = depth
     end
@@ -44,11 +44,11 @@ module DuPretty
       private
 
       def basename
-        Pathname.new(@path).basename.to_s
+        ::Pathname.new(@path).basename.to_s
       end
 
       def depth
-        Pathname.new(relative_path).each_filename.to_a.size - 1
+        ::Pathname.new(relative_path).each_filename.to_a.size - 1
       end
 
       def pretty_byte
