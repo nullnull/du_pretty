@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    du_pretty (0.2.2)
+    du_pretty (0.3.0)
       colorize
       thor
 
@@ -36,4 +36,4 @@ DEPENDENCIES
   rspec (~> 3.0)
 
 BUNDLED WITH
-   1.16.1
+   1.16.2
