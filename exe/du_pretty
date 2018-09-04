@@ -1,4 +1,9 @@
 #!/usr/bin/env ruby
 
 require 'du_pretty'
-DuPretty::CLI.start
+if ['help', '--help'].include?(ARGV[0])
+  ARGV[1] = DuPretty::CLI.default_task
+else
+  ARGV.unshift(DuPretty::CLI.default_task)
+end
+DuPretty::CLI.start(ARGV)
