@@ -7,7 +7,7 @@
 
 Show pretty print of `du` results.
 
-[![Image from Gyazo](https://i.gyazo.com/5c5a0a5099cc0439efb8aaa7d767743a.png)](https://gyazo.com/5c5a0a5099cc0439efb8aaa7d767743a)
+[![Image from Gyazo](https://i.gyazo.com/c364be05ccbfcef881028a1e7e491e56.png)](https://gyazo.com/c364be05ccbfcef881028a1e7e491e56)
 
 ## Installation
 ```sh
