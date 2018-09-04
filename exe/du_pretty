@@ -1,3 +1,4 @@
 #!/usr/bin/env ruby
 
-require "du_pretty"
+require 'du_pretty'
+DuPretty::CLI.start
