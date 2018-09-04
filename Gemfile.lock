@@ -2,11 +2,13 @@ PATH
   remote: .
   specs:
     du_pretty (0.1.0)
+      colorize
       thor
 
 GEM
   remote: https://rubygems.org/
   specs:
+    colorize (0.8.1)
     diff-lcs (1.3)
     rake (10.5.0)
     rspec (3.8.0)
