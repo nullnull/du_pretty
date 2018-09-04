@@ -33,7 +33,7 @@ $ bundle install
 $ bundle exec exe/du_pretty
 
 # test
-$ bundle exec rspec spec/du_pretty_spec.rb
+$ bundle exec rspec spec
 ```
 
 ## Contributing

@@ -1,5 +1,5 @@
-RSpec.describe DuPretty do
-  class DuPretty::DuWrapper
+RSpec.describe DuPretty::Prettier do
+  class DuPretty::Prettier
     def du
       if @depth == 2
         <<~EOT
@@ -24,13 +24,9 @@ RSpec.describe DuPretty do
   let(:depth) { nil }
   let(:min_kbyte) { 0 }
 
-  it "has a version number" do
-    expect(DuPretty::VERSION).not_to be nil
-  end
-
   describe '#tree' do
     subject do
-      DuPretty::DuWrapper.new(
+      DuPretty::Prettier.new(
         path,
         depth: depth,
         min_kbyte: min_kbyte,
@@ -66,7 +62,7 @@ RSpec.describe DuPretty do
 
   describe '#sorted' do
     subject do
-      DuPretty::DuWrapper.new(
+      DuPretty::Prettier.new(
         path,
         depth: depth,
         min_kbyte: min_kbyte,
@@ -80,7 +76,7 @@ RSpec.describe DuPretty do
 
   describe '#original' do
     subject do
-      DuPretty::DuWrapper.new(
+      DuPretty::Prettier.new(
         path,
         depth: depth,
         min_kbyte: min_kbyte,

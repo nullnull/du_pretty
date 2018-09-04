@@ -30,18 +30,18 @@ Details:
     option :tree, type: :boolean, default: true
 
     def path(path = '.')
-      du_wrapper = DuWrapper.new(
+      prettier = DuPretty::Prettier.new(
         path,
         min_kbyte: DuPretty::Utils.size_to_kbyte(options[:size]),
         depth: options[:depth],
         with_files: options[:all]
       )
       result = if options[:sort]
-                 du_wrapper.sorted
+                 prettier.sorted
                elsif options[:tree] == false
-                 du_wrapper.original
+                 prettier.original
                else
-                 du_wrapper.tree
+                 prettier.tree
                end
       print result + "\n"
     end
