@@ -5,9 +5,9 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/2cc73b7dea6a066b6f9b/maintainability)](https://codeclimate.com/github/nullnull/du_pretty/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/2cc73b7dea6a066b6f9b/test_coverage)](https://codeclimate.com/github/nullnull/du_pretty/test_coverage)
 
-Show pretty print of `du` results.
+Show pretty print of `du` outputs.
 
-[![Image from Gyazo](https://i.gyazo.com/c364be05ccbfcef881028a1e7e491e56.png)](https://gyazo.com/c364be05ccbfcef881028a1e7e491e56)
+[![Image from Gyazo](https://i.gyazo.com/75f461882b3d0ba01dce40c79de543dd.png)](https://gyazo.com/75f461882b3d0ba01dce40c79de543dd)
 
 ## Installation
 ```sh
@@ -19,17 +19,27 @@ $ gem install 'du_pretty'
 $ du_pretty <path>
 
 # specify max depth
-$ du_pretty -d 2 <path>
+$ du_pretty <path> -d 2
 
 # Filter results of `du` by its file's size
-$ du_pretty --size 10M <path>
+$ du_pretty <path> --size 10M
+```
 
+[![Image from Gyazo](https://i.gyazo.com/e3668cda06afde799fee8d8cf16abaa2.png)](https://gyazo.com/e3668cda06afde799fee8d8cf16abaa2)
+
+
+```sh
 # Show results sorted by the file's size
-$ du_pretty --sort <path>
+$ du_pretty <path> --sort
+```
 
+[![Image from Gyazo](https://i.gyazo.com/d8ddc6c2a12a80bf7d07eaf9d63aa0b0.png)](https://gyazo.com/d8ddc6c2a12a80bf7d07eaf9d63aa0b0)
+
+```sh
 # help
 $ du_pretty --help
 ```
+
 
 
 ## Development

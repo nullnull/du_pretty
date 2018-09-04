@@ -73,7 +73,7 @@ module DuPretty
       end
 
       def pretty_byte
-        mb = @kbyte / 1024
+        mb = @kbyte * 1.0 / 1024
         gb = mb / 1024
         if gb.positive?
           if gb > 10
