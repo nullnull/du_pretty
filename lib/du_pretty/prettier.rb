@@ -107,7 +107,7 @@ module DuPretty
 
       def percentage
         percentage = @kbyte * 1.0 / @total * 100
-        "#{percentage.ceil}%"
+        "#{percentage.round}%"
       end
 
       def relative_path
