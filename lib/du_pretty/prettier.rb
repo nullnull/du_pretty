@@ -75,23 +75,25 @@ module DuPretty
       def pretty_byte
         mb = @kbyte * 1.0 / 1024
         gb = mb / 1024
-        if gb.positive?
+        byte_format = ->(x) { x.to_i >= 10 ? x.to_i : x.round(1) }
+        f = ->(value, unit, color) { "#{byte_format.call(value)}#{unit} (#{percentage})".send(color) }
+        if gb >= 1.0
           if gb > 10
-            "#{gb}GB (#{percentage})".red
+            f.call(gb, 'GB', :red)
           else
-            "#{gb}GB (#{percentage})".light_red
+            f.call(gb, 'GB', :light_red)
           end
-        elsif mb.positive?
+        elsif mb >= 1.0
           if mb > 500
-            "#{mb}MB (#{percentage})".yellow
+            f.call(mb, 'MB', :yellow)
           else
-            "#{mb}MB (#{percentage})".light_yellow
+            f.call(mb, 'MB', :light_yellow)
           end
         else
           if @kbyte > 500
-            "#{@kbyte}KB (#{percentage})".green
+            f.call(@kbyte, 'KB', :green)
           else
-            "#{@kbyte}KB (#{percentage})".light_green
+            f.call(@kbyte, 'KB', :light_green)
           end
         end
       end
