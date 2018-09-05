@@ -7,7 +7,7 @@
 
 Show pretty print of `du` outputs.
 
-[![Image from Gyazo](https://i.gyazo.com/75f461882b3d0ba01dce40c79de543dd.png)](https://gyazo.com/75f461882b3d0ba01dce40c79de543dd)
+[![Image from Gyazo](https://i.gyazo.com/20f05107e1211468624195ea65948be3.png)](https://gyazo.com/20f05107e1211468624195ea65948be3)
 
 ## Installation
 ```sh
@@ -22,24 +22,22 @@ $ du_pretty <path>
 $ du_pretty <path> -d 2
 
 # Filter results of `du` by its file's size
-$ du_pretty <path> --size 10M
+$ du_pretty <path> --size 50M
 ```
 
-[![Image from Gyazo](https://i.gyazo.com/e3668cda06afde799fee8d8cf16abaa2.png)](https://gyazo.com/e3668cda06afde799fee8d8cf16abaa2)
-
+[![Image from Gyazo](https://i.gyazo.com/6f426f2e736e5fc606eb6bd666b595a9.png)](https://gyazo.com/6f426f2e736e5fc606eb6bd666b595a9)
 
 ```sh
 # Show results sorted by the file's size
 $ du_pretty <path> --sort
 ```
 
-[![Image from Gyazo](https://i.gyazo.com/d8ddc6c2a12a80bf7d07eaf9d63aa0b0.png)](https://gyazo.com/d8ddc6c2a12a80bf7d07eaf9d63aa0b0)
+[![Image from Gyazo](https://i.gyazo.com/e53beb3da13fe0b3d44ac1552716d388.png)](https://gyazo.com/e53beb3da13fe0b3d44ac1552716d388)
 
 ```sh
 # help
 $ du_pretty --help
 ```
-
 
 
 ## Development
