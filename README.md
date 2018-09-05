@@ -7,7 +7,7 @@
 
 Show pretty print of `du` outputs.
 
-[![Image from Gyazo](https://i.gyazo.com/20f05107e1211468624195ea65948be3.png)](https://gyazo.com/20f05107e1211468624195ea65948be3)
+[![Image from Gyazo](https://i.gyazo.com/be6f718ff31cec830d2bddfeb6da2756.png)](https://gyazo.com/be6f718ff31cec830d2bddfeb6da2756)
 
 ## Installation
 ```sh
@@ -25,14 +25,14 @@ $ du_pretty <path> -d 2
 $ du_pretty <path> --size 50M
 ```
 
-[![Image from Gyazo](https://i.gyazo.com/6f426f2e736e5fc606eb6bd666b595a9.png)](https://gyazo.com/6f426f2e736e5fc606eb6bd666b595a9)
+[![Image from Gyazo](https://i.gyazo.com/99eca1755d9c112cdfde70e2de2290e6.png)](https://gyazo.com/99eca1755d9c112cdfde70e2de2290e6)
 
 ```sh
 # Show results sorted by the file's size
 $ du_pretty <path> --sort
 ```
 
-[![Image from Gyazo](https://i.gyazo.com/e53beb3da13fe0b3d44ac1552716d388.png)](https://gyazo.com/e53beb3da13fe0b3d44ac1552716d388)
+[![Image from Gyazo](https://i.gyazo.com/c330d33adc4c546acd3ccd1b2a9d2755.png)](https://gyazo.com/c330d33adc4c546acd3ccd1b2a9d2755)
 
 ```sh
 # help
