@@ -22,26 +22,29 @@ Details:
 
   --sort
       Show results sorted by the file's size.
+
+  --tree
+      Show tree like results.
     EOT
     option :all, aliases: :a, type: :boolean
-    option :depth, type: :numeric, aliases: :d
+    option :depth, type: :numeric, aliases: :d, default: 1
     option :size, aliases: :s
-    option :sort, type: :boolean
-    option :tree, type: :boolean, default: true
+    option :sort, type: :boolean, default: true
+    option :tree, type: :boolean
 
     def path(path = '.')
       prettier = DuPretty::Prettier.new(
         path,
         min_kbyte: DuPretty::Utils.size_to_kbyte(options[:size]),
-        depth: options[:depth],
+        depth: options[:all] ? nil : options[:depth],
         with_files: options[:all]
       )
-      result = if options[:sort]
-                 prettier.sorted
-               elsif options[:tree] == false
-                 prettier.original
-               else
+      result = if options[:tree]
                  prettier.tree
+               elsif options[:sort]
+                 prettier.sorted
+               else
+                 prettier.original
                end
       print result + "\n"
     end
