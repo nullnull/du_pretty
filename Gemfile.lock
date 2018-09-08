@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    du_pretty (1.1.0)
+    du_pretty (1.1.1)
       colorize (~> 0.8.1)
       thor (~> 0.20.0)
 
