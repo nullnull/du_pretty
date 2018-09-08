@@ -18,7 +18,7 @@ $ gem install 'du_pretty'
 ```sh
 $ du_pretty <path>
 
-# specify max depth
+# specify max depth (default 1)
 $ du_pretty <path> -d 2
 
 # Filter results of `du` by its file's size
@@ -28,13 +28,16 @@ $ du_pretty <path> --size 50M
 [![Image from Gyazo](https://i.gyazo.com/99eca1755d9c112cdfde70e2de2290e6.png)](https://gyazo.com/99eca1755d9c112cdfde70e2de2290e6)
 
 ```sh
-# Show results sorted by the file's size
+# Show results sorted by the file's size (default)
 $ du_pretty <path> --sort
 ```
 
 [![Image from Gyazo](https://i.gyazo.com/c330d33adc4c546acd3ccd1b2a9d2755.png)](https://gyazo.com/c330d33adc4c546acd3ccd1b2a9d2755)
 
 ```sh
+# Show tree like results.
+$ du_pretty <path> --tree
+
 # help
 $ du_pretty --help
 ```
