@@ -30,7 +30,7 @@ module DuPretty
         @with_files ? '-a' : nil,
         '-k'
       ]
-      `du #{options.join(' ')} #{@path}`
+      `du #{options.join(' ')} #{@path.gsub(' ', '\ ')}`
     end
 
     def disk_usages
